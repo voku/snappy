@@ -8,9 +8,9 @@ Zeev Tarantov <zeev.tarantov@gmail.com>
 extern "C" {
 #endif
 
-#define CSNAPPY_VERSION	4
+#define CSNAPPY_VERSION	5
 
-#define CSNAPPY_WORKMEM_BYTES_POWER_OF_TWO 15
+#define CSNAPPY_WORKMEM_BYTES_POWER_OF_TWO 16
 #define CSNAPPY_WORKMEM_BYTES (1 << CSNAPPY_WORKMEM_BYTES_POWER_OF_TWO)
 
 #ifndef __GNUC__
@@ -51,7 +51,7 @@ csnappy_compress_fragment(
  * REQUIRES: working_memory has (1 << workmem_bytes_power_of_two) bytes.
  * REQUIRES: 9 <= workmem_bytes_power_of_two <= 15.
  *
- * Takes the data stored in "input[0..input_length]" and stores
+ * Takes the data stored in "input[0..input_length-1]" and stores
  * it in the array pointed to by "compressed".
  *
  * "*out_compressed_length" is set to the length of the compressed output.
